@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DALAS Construction</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #111;
+    color: #fff;
+}
+
+/* NAVBAR */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #000;
+    padding: 15px;
+    text-align: center;
+    z-index: 10;
+}
+
+nav a {
+    color: #f5b400;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* HEADER */
+header {
+    position: relative;
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)),
+                url('https://images.unsplash.com/photo-1503387762-592deb58ef4e');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* LOGO GLOW */
+.logo-bg {
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    background: radial-gradient(circle, rgba(245,180,0,0.35), transparent 70%);
+    filter: blur(35px);
+}
+
+/* BLENDED LOGO */
+header img {
+    width: 180px;
+    margin-bottom: 20px;
+    opacity: 0.85;
+    mix-blend-mode: screen;
+    filter: drop-shadow(0 0 25px rgba(245,180,0,0.7));
+    border-radius: 20px;
+    transition: 0.4s ease;
+}
+
+header img:hover {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+header h1 {
+    font-size: 3rem;
+    color: #f5b400;
+}
+
+header p {
+    margin-top: 10px;
+}
+
+button {
+    background: #f5b400;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* SECTIONS */
+section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+/* SERVICES */
+.services-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.service {
+    background: #222;
+    padding: 20px;
+    width: 250px;
+    border: 1px solid #f5b400;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+/* Grow on hover and touch */
+.service:hover,
+.service.tapped {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(245,180,0,0.6);
+}
+
+/* CONTACT */
+.contact a {
+    color: #f5b400;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* FOOTER */
+footer {
+    background: #000;
+    text-align: center;
+    padding: 20px;
+    color: #aaa;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<header>
+    <div class="logo-bg"></div>
+
+    <img src="https://p16-sign-sg.tiktokcdn.com/tos-alisg-avt-0068/eb179a7e74a8b5a662572786c6eb88b9~tplv-tiktokx-cropcenter:1080:1080.jpeg?dr=14579&refresh_token=a69485c2&x-expires=1774983600&x-signature=UOPod1DjFcz6aHyTFGFEYPtRdLI%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=my2">
+
+    <h1>Dalas Construction</h1>
+    <p>Building the Future with Strength & Precision</p>
+
+    <button onclick="document.getElementById('contact').scrollIntoView()">
+        Get Started
+    </button>
+</header>
+
+<section id="about">
+    <h2>About Us</h2>
+    <p>
+        DALAS Construction is a trusted name delivering high-quality projects
+        with precision and reliability.
+    </p>
+</section>
+
+<section id="services">
+    <h2>Our Services</h2>
+    <div class="services-box">
+        <div class="service">
+            <h3>Building Construction</h3>
+            <p>Strong, reliable structures built to last.</p>
+        </div>
+        <div class="service">
+            <h3>Renovation</h3>
+            <p>Modern upgrades and transformations.</p>
+        </div>
+        <div class="service">
+            <h3>Project Management</h3>
+            <p>Efficient planning and execution.</p>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <p>📞 <a href="tel:+96170090888">+961 70 090 888</a></p>
+    <a href="https://wa.me/96170090888" target="_blank">
+        <button>Chat on WhatsApp</button>
+    </a>
+</section>
+
+<footer>
+    <p>© 2026 DALAS Construction. All Rights Reserved.</p>
+</footer>
+
+<!-- Touch support for mobile devices -->
+<script>
+const services = document.querySelectorAll('.service');
+services.forEach(service => {
+  service.addEventListener('touchstart', () => {
+    service.classList.add('tapped');
+  });
+  service.addEventListener('touchend', () => {
+    service.classList.remove('tapped');
+  });
+});
+</script>
+
+</body>
+</html>
